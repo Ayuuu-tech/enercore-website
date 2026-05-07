@@ -1,0 +1,25 @@
+# Dependencies
+enercore-site/node_modules/
+
+# Next.js build output
+enercore-site/.next/
+enercore-site/out/
+
+# Environment files — never commit these
+enercore-site/.env.local
+enercore-site/.env.*.local
+.env
+
+# Build artifacts
+enercore-site/tsconfig.tsbuildinfo
+
+# macOS
+.DS_Store
+**/.DS_Store
+
+# Large reference files (screen recordings)
+docs/references/*.mov
+
+# Editor
+.vscode/
+.idea/
