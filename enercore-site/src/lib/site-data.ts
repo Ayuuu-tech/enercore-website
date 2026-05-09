@@ -123,6 +123,9 @@ export type Project = {
   outcome:     string;
   bgColor:     string;
   imageUrl:    string;
+  images?:     string[];
+  videos?:     string[];
+  details?:    { label: string; value: string }[];
 };
 
 export const projects: Project[] = [
@@ -142,11 +145,28 @@ export const projects: Project[] = [
     outcome:
       "703,209 kWh estimated annual generation. Termination voltage below the shed at 415V with monthly PPA payments providing predictable, long-term energy pricing.",
     bgColor:  "#1a3d20",
-    imageUrl: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=75",
+    imageUrl: "/images/projects/caparo-gate.jpg",
+    images: [
+      "/images/projects/caparo-507kw-1.jpeg",
+      "/images/projects/caparo-507kw-3.jpeg",
+      "/images/projects/caparo-507kw-4.jpeg",
+      "/images/projects/caparo-507kw-5.jpeg",
+      "/images/projects/caparo-507kw-6.jpeg",
+      "/images/projects/caparo-507kw-7.jpeg",
+    ],
+    details: [
+      { label: "Client Name",            value: "Caparo Maruti India Ltd"          },
+      { label: "Location",               value: "Bawal, Haryana, India"            },
+      { label: "Capacity",               value: "507 kWp"                          },
+      { label: "Estimated Generation",   value: "703,209 kWh/year"                 },
+      { label: "Termination Voltage",    value: "Below the Shed at 415 V"          },
+      { label: "Safety Considerations",  value: "Hand Railings, Walkways & Lifelines" },
+      { label: "Payment Structure",      value: "Monthly PPA"                      },
+    ],
   },
   {
     slug:        "hella-india-automotive",
-    name:        "Hella India Automotive",
+    name:        "Hella India Private Limited",
     capacity:    "450 kWp",
     location:    "Gurugram, Haryana",
     state:       "Haryana",
@@ -160,7 +180,25 @@ export const projects: Project[] = [
     outcome:
       "788,400 kWh annual generation. ₹7.88M gross avoided cost, ₹4.57M net annual savings, 646.5 tons CO₂ reduced — equivalent to 30,000+ trees planted annually.",
     bgColor:  "#14532d",
-    imageUrl: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=75",
+    imageUrl: "/images/projects/hella-gate.jpg",
+    images: [
+      "/images/projects/hella-1.jpeg",
+      "/images/projects/hella-3.jpeg",
+      "/images/projects/hella-4.jpeg",
+      "/images/projects/hella-5.jpeg",
+    ],
+    videos: [
+      "/videos/projects/hella-6.mp4",
+    ],
+    details: [
+      { label: "Client Name",            value: "Hella India Private Limited"      },
+      { label: "Location",               value: "Gurugram, Haryana, India"         },
+      { label: "Capacity",               value: "450 kWp"                          },
+      { label: "Estimated Generation",   value: "788,400 kWh/year"                 },
+      { label: "Termination Voltage",    value: "Below the Shed at 415 V"          },
+      { label: "Safety Considerations",  value: "Hand Railings, Walkways & Lifelines" },
+      { label: "Payment Structure",      value: "Monthly"                          },
+    ],
   },
   {
     slug:        "mahagenco-design-engineering",
@@ -196,7 +234,26 @@ export const projects: Project[] = [
     outcome:
       "703,209 kWh estimated annual generation at 415V termination. Monthly PPA payments providing predictable long-term clean energy for the healthcare manufacturing facility.",
     bgColor:  "#166534",
-    imageUrl: "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=75",
+    imageUrl: "/images/projects/hollister-gate.png",
+    images: [
+      "/images/projects/hollister-1.jpeg",
+      "/images/projects/hollister-3.jpeg",
+      "/images/projects/hollister-5.jpeg",
+    ],
+    videos: [
+      "/videos/projects/hollister-2.mp4",
+      "/videos/projects/hollister-4.mp4",
+      "/videos/projects/hollister-6.mp4",
+    ],
+    details: [
+      { label: "Client Name",            value: "Hollister Medical India Ltd"         },
+      { label: "Location",               value: "Bawal, Haryana, India"               },
+      { label: "Capacity",               value: "500 kWp"                             },
+      { label: "Estimated Generation",   value: "703,209 kWh/year"                    },
+      { label: "Termination Voltage",    value: "Below the Shed at 415 V"             },
+      { label: "Safety Considerations",  value: "Hand Railings, Walkways & Lifelines" },
+      { label: "Payment Structure",      value: "Monthly PPA"                         },
+    ],
   },
   {
     slug:        "jalsa-resort",
@@ -232,7 +289,20 @@ export const projects: Project[] = [
     outcome:
       "Expected ~400,000 kWh/month delivery. 20-year Open Access arrangement providing long-term energy cost certainty and significant carbon footprint reduction.",
     bgColor:  "#1a3d20",
-    imageUrl: "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=75",
+    imageUrl: "/images/projects/3mw-site-1.jpeg",
+    images: [
+      "/images/projects/3mw-site-1.jpeg",
+      "/images/projects/3mw-site-2.jpeg",
+    ],
+    details: [
+      { label: "Client Name",          value: "Caparo Maruti India Ltd"   },
+      { label: "Location",             value: "Haryana, India"            },
+      { label: "Capacity",             value: "3 MW"                      },
+      { label: "Project Type",         value: "Open Access"               },
+      { label: "Tenure",               value: "20 Years"                  },
+      { label: "Est. Generation",      value: "~400,000 units/month"      },
+      { label: "Status",               value: "Upcoming"                  },
+    ],
   },
   {
     slug:        "vatika-hotels",
@@ -251,6 +321,15 @@ export const projects: Project[] = [
       "Expected ~72,000 kWh/month generation over a 25-year tenure, significantly reducing electricity costs and carbon footprint for the hospitality group.",
     bgColor:  "#14532d",
     imageUrl: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=75",
+    details: [
+      { label: "Client Name",          value: "Vatika Hotels"                      },
+      { label: "Location",             value: "Gurugram, Haryana, India"           },
+      { label: "Capacity",             value: "620 kW"                             },
+      { label: "Project Type",         value: "Solar Rooftop / Open Access"        },
+      { label: "Tenure",               value: "25 Years"                           },
+      { label: "Est. Generation",      value: "~72,000 units/month"                },
+      { label: "Status",               value: "Upcoming"                           },
+    ],
   },
 ];
 
@@ -300,15 +379,27 @@ export const journey = [
   },
 ];
 
+/* ─── Client Logos ────────────────────────────────────────────────────────── */
+export const clientLogos = [
+  { name: "Caparo Maruti India Ltd",     sector: "Automotive Manufacturing", logo: "/images/clients/caparo.png"            },
+  { name: "Hella India",                 sector: "Automotive",               logo: "/images/clients/hella.png"             },
+  { name: "Hollister Medical India",     sector: "Healthcare Manufacturing", logo: "/images/clients/hollister.png"         },
+  { name: "Jalsa Resort",                sector: "Hospitality",              logo: "/images/clients/jalsa-resort.png"      },
+  { name: "Perfect Industries",          sector: "Industrial",               logo: "/images/clients/perfect-industries.png"},
+  { name: "Solabot",                     sector: "Solar Technology",         logo: "/images/clients/solabot.png"           },
+  { name: "Sunkind Energy",              sector: "Renewable Energy",         logo: "/images/clients/sunkind.png"           },
+];
+
 /* ─── Customers ───────────────────────────────────────────────────────────── */
 export const customers = [
-  { name: "Caparo Maruti India Ltd", sector: "Automotive Manufacturing" },
-  { name: "Hella India Automotive",  sector: "Automotive"               },
-  { name: "Hollister Medical India", sector: "Healthcare Manufacturing" },
-  { name: "Jalsa Resort",            sector: "Hospitality"              },
-  { name: "Sunkind Energy",          sector: "Renewable Energy"         },
-  { name: "Solabot",                 sector: "Solar Technology"         },
-  { name: "Perfect",                 sector: "Industrial"               },
+  { name: "Caparo Maruti India Ltd",    sector: "Automotive Manufacturing" },
+  { name: "Hella India Private Limited",sector: "Automotive"               },
+  { name: "Hollister Medical India",    sector: "Healthcare Manufacturing" },
+  { name: "Vatika Hotels",              sector: "Hospitality"              },
+  { name: "Jalsa Resort",               sector: "Hospitality"              },
+  { name: "Sunkind Energy",             sector: "Renewable Energy"         },
+  { name: "Solabot",                    sector: "Solar Technology"         },
+  { name: "Perfect",                    sector: "Industrial"               },
 ];
 
 /* ─── Testimonials ────────────────────────────────────────────────────────── */

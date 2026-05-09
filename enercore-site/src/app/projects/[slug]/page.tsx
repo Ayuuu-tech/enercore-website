@@ -4,6 +4,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ScrollReveal } from "@/components/ui/scroll-reveal";
 import { IconTarget, IconBolt, IconCheck } from "@/components/ui/icons";
+import { ProjectGallery } from "@/components/projects/project-gallery";
 import { projects } from "@/lib/site-data";
 
 type Params = Promise<{ slug: string }>;
@@ -97,6 +98,57 @@ export default async function ProjectDetailPage({ params }: { params: Params }) 
               </ScrollReveal>
             ))}
           </div>
+
+          {/* Project specifications table */}
+          {project.details && project.details.length > 0 && (
+            <ScrollReveal delay={0.2} className="mt-14">
+              <div className="flex items-center gap-3 mb-6">
+                <span className="h-2.5 w-2.5 rounded-sm bg-[#ffe55d]" />
+                <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#274b30]/55">
+                  Project Specifications
+                </p>
+              </div>
+              <div className="overflow-hidden rounded-xl border border-[#d8dbd9]/60 shadow-sm">
+                <table className="w-full border-collapse">
+                  <tbody>
+                    {project.details.map(({ label, value }, i) => (
+                      <tr
+                        key={label}
+                        className={i % 2 === 0 ? "bg-white" : "bg-[#f7f6ef]"}
+                      >
+                        <td
+                          className="w-2/5 border-b border-[#d8dbd9]/50 px-6 py-4 align-top"
+                          style={{ borderRight: "1px solid rgba(216,219,217,0.5)" }}
+                        >
+                          <span className="font-heading text-sm font-semibold text-[#1b291f]" style={{ letterSpacing: "-0.01em" }}>
+                            {label}
+                          </span>
+                        </td>
+                        <td className="border-b border-[#d8dbd9]/50 px-6 py-4 align-top">
+                          <span className="text-sm text-[#274b30]/80 leading-relaxed">
+                            {value}
+                          </span>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </ScrollReveal>
+          )}
+
+          {/* Photo gallery */}
+          {((project.images && project.images.length > 0) || (project.videos && project.videos.length > 0)) && (
+            <ScrollReveal delay={0.25} className="mt-14">
+              <h3
+                className="mb-6 font-heading text-xl font-semibold text-[#1b291f]"
+                style={{ letterSpacing: "-0.03em" }}
+              >
+                Site Photos
+              </h3>
+              <ProjectGallery images={project.images} videos={project.videos} projectName={project.name} />
+            </ScrollReveal>
+          )}
 
           {/* Next steps */}
           <ScrollReveal delay={0.3} className="mt-14">

@@ -4,6 +4,8 @@ import { ServicesSection } from "@/components/home/services-section";
 import { ScrollytellingSection } from "@/components/home/scrollytelling-section";
 import { ProjectsSection } from "@/components/home/projects-section";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
+import { ClientVideoSection } from "@/components/home/client-video-section";
+import { ClientsSection } from "@/components/home/clients-section";
 import { CtaBanner } from "@/components/home/cta-banner";
 
 export default function HomePage() {
@@ -15,6 +17,8 @@ export default function HomePage() {
       <ScrollytellingSection />
       <ProjectsSection />
       <TestimonialsSection />
+      <ClientVideoSection />
+      <ClientsSection />
       <CtaBanner />
     </>
   );
