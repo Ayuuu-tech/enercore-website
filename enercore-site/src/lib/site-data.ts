@@ -125,6 +125,7 @@ export type Project = {
   imageUrl:    string;
   images?:     string[];
   videos?:     string[];
+  droneVideo?: string;
   details?:    { label: string; value: string }[];
 };
 
@@ -154,6 +155,7 @@ export const projects: Project[] = [
       "/images/projects/caparo-507kw-6.jpeg",
       "/images/projects/caparo-507kw-7.jpeg",
     ],
+    droneVideo: "/videos/projects/caparo-drone.mp4",
     details: [
       { label: "Client Name",            value: "Caparo Maruti India Ltd"          },
       { label: "Location",               value: "Bawal, Haryana, India"            },

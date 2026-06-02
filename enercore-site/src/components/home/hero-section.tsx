@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useRef, useEffect } from "react";
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 
@@ -66,24 +65,28 @@ export function HeroSection() {
       ref={sectionRef}
       className="noise-overlay relative flex min-h-screen w-full flex-col items-start justify-center overflow-hidden pt-24 pb-16"
     >
-      {/* ── Background image with Ken Burns + scroll parallax ── */}
+      {/* ── Background video with scroll parallax ── */}
       <motion.div
         className="absolute inset-0"
         style={{ scale: imageScale, y: imageY }}
       >
-        <div className="absolute inset-0" style={{ willChange: "transform" }}>
-          <Image
-            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1920&q=80"
-            alt=""
-            fill
-            className="object-cover object-center"
-            priority
-          />
+        <div className="absolute inset-0 overflow-hidden" style={{ willChange: "transform" }}>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover object-center"
+          >
+            <source src="/videos/drone-hero.mp4" type="video/mp4" />
+          </video>
         </div>
-        {/* Deep overlay */}
-        <div className="absolute inset-0 bg-[#0d1a10]/75" />
+        {/* Deep overlay — keeps text readable over bright aerial footage */}
+        <div className="absolute inset-0 bg-[#0d1a10]/60" />
         {/* Left-heavy gradient for content legibility */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1b291f]/90 via-[#1b291f]/60 to-[#1b291f]/20" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#1b291f]/92 via-[#1b291f]/55 to-[#1b291f]/10" />
+        {/* Vignette — darkens edges for cinematic feel */}
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,transparent_40%,#0d1a10/60_100%)]" />
         {/* Bottom fade into next section */}
         <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-[#1b291f] to-transparent" />
       </motion.div>

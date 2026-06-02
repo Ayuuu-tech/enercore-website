@@ -150,6 +150,50 @@ export default async function ProjectDetailPage({ params }: { params: Params }) 
             </ScrollReveal>
           )}
 
+          {/* Drone View */}
+          {project.droneVideo && (
+            <ScrollReveal delay={0.28} className="mt-14">
+              <div className="overflow-hidden rounded-2xl bg-[#1b291f] shadow-xl shadow-[#1b291f]/15">
+                {/* Header */}
+                <div className="flex items-center justify-between px-8 pt-7 pb-6">
+                  <div>
+                    <div className="flex items-center gap-2.5 mb-3">
+                      <span className="relative flex h-2 w-2">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#ffe55d] opacity-40" />
+                        <span className="relative inline-flex h-2 w-2 rounded-full bg-[#ffe55d]" />
+                      </span>
+                      <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-white/40">
+                        Aerial Footage
+                      </span>
+                    </div>
+                    <h3
+                      className="font-heading text-2xl font-semibold text-white"
+                      style={{ letterSpacing: "-0.03em" }}
+                    >
+                      Drone View
+                    </h3>
+                    <p className="mt-1.5 text-sm text-[#8f9c93]">
+                      {project.name} &middot; {project.location}
+                    </p>
+                  </div>
+                  <span className="rounded-full border border-white/12 bg-white/6 px-4 py-1.5 text-xs font-semibold text-white/45 backdrop-blur-sm">
+                    Full Video
+                  </span>
+                </div>
+                <div className="h-px bg-white/8" />
+                {/* Video */}
+                <video
+                  src={project.droneVideo}
+                  className="w-full"
+                  controls
+                  playsInline
+                  preload="metadata"
+                  style={{ aspectRatio: "16/9", display: "block", background: "#000" }}
+                />
+              </div>
+            </ScrollReveal>
+          )}
+
           {/* Next steps */}
           <ScrollReveal delay={0.3} className="mt-14">
             <div className="rounded-lg bg-[#1b291f] p-8 text-center text-white">
