@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -54,6 +55,8 @@ type Mode = "hidden" | "open" | "min";
 
 export function ProjectGreenPopup() {
   const [mode, setMode] = useState<Mode>("hidden");
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     let startMinimized = false;
@@ -63,9 +66,29 @@ export function ProjectGreenPopup() {
     } catch {
       /* localStorage unavailable — show anyway */
     }
-    const t = setTimeout(() => setMode(startMinimized ? "min" : "open"), SHOW_DELAY_MS);
+    // Only auto-open the full card on the home page; elsewhere start minimized.
+    const t = setTimeout(
+      () => setMode(startMinimized || !isHome ? "min" : "open"),
+      SHOW_DELAY_MS,
+    );
     return () => clearTimeout(t);
-  }, []);
+  }, [isHome]);
+
+  // Collapse to the side tab when leaving home or when the user scrolls up.
+  useEffect(() => {
+    if (!isHome) {
+      setMode((m) => (m === "open" ? "min" : m));
+      return;
+    }
+    let lastY = window.scrollY;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y < lastY - 4) setMode((m) => (m === "open" ? "min" : m)); // scrolling up
+      lastY = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [isHome]);
 
   const minimize = () => {
     setMode("min");
