@@ -81,7 +81,8 @@ const careers = [
 const fees = [
   { who: "BMU Students", price: "₹2,500", note: "per student, without software training" },
   { who: "BMU Students", price: "₹3,000", note: "per student, with software training" },
-  { who: "Non-BMU Students", price: "₹10,000", note: "per student, including software training" },
+  { who: "Non-BMU Students", price: "₹4,000", note: "per student, without software training" },
+  { who: "Non-BMU Students", price: "₹4,500", note: "per student, with software training" },
 ];
 
 export default function RetapPage() {
