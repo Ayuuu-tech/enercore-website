@@ -25,6 +25,7 @@ const projectTypes = [
   "Design & Engineering",
   "Asset Management",
   "End-to-End Consulting",
+  "RETAP 2026 (Training Program)",
   "Other",
 ];
 
