@@ -79,10 +79,20 @@ const careers = [
 ];
 
 const fees = [
-  { who: "BMU Students", price: "₹2,500", note: "per student, without software training" },
-  { who: "BMU Students", price: "₹3,000", note: "per student, with software training" },
-  { who: "Non-BMU Students", price: "₹4,000", note: "per student, without software training" },
-  { who: "Non-BMU Students", price: "₹4,500", note: "per student, with software training" },
+  {
+    who: "BMU Students",
+    tiers: [
+      { price: "₹2,500", label: "Without software training" },
+      { price: "₹3,000", label: "With software training" },
+    ],
+  },
+  {
+    who: "Non-BMU Students",
+    tiers: [
+      { price: "₹4,000", label: "Without software training" },
+      { price: "₹4,500", label: "With software training" },
+    ],
+  },
 ];
 
 export default function RetapPage() {
@@ -303,13 +313,19 @@ export default function RetapPage() {
               Transparent, all-inclusive pricing
             </h2>
           </ScrollReveal>
-          <StaggerContainer className="mt-10 grid gap-6 md:grid-cols-3">
+          <StaggerContainer className="mt-10 grid gap-6 md:grid-cols-2">
             {fees.map((f) => (
-              <StaggerItem key={`${f.who}-${f.price}`}>
+              <StaggerItem key={f.who}>
                 <div className="flex h-full flex-col rounded-2xl border border-[#e5e8e6] bg-[#fbfaf4] p-8">
                   <span className="text-sm font-semibold uppercase tracking-wide text-[#90c955]">{f.who}</span>
-                  <div className="font-heading mt-2 text-5xl font-bold text-[#1b291f]">{f.price}</div>
-                  <p className="mt-2 text-sm text-[#274b30]/70">{f.note}</p>
+                  <div className="mt-4 grid grid-cols-2 gap-6">
+                    {f.tiers.map((t) => (
+                      <div key={t.price}>
+                        <div className="font-heading text-4xl font-bold text-[#1b291f]">{t.price}</div>
+                        <p className="mt-2 text-sm text-[#274b30]/70">{t.label}</p>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </StaggerItem>
             ))}
