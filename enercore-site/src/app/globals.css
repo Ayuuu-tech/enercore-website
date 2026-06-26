@@ -54,11 +54,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Custom cursor — hide default on precise pointer devices */
-@media (hover: hover) and (pointer: fine) {
-  *, *::before, *::after { cursor: none !important; }
-}
-
 .font-heading {
   font-family: var(--font-outfit), system-ui, sans-serif;
   letter-spacing: -0.03em;
